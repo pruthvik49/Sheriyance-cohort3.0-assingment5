@@ -15,8 +15,10 @@ let addBalance = ()=>{
     totalBalance = transactions.reduce((acc, element) => {
         return acc + element.amount;
     }, 0)
-    console.log(totalBalance);
+    // console.log(totalBalance);
 }
+
+
 form.style.display = 'none'
 
 const storageKey = 'formVal'
@@ -24,7 +26,7 @@ let transactions = []
 
 const savedTransactions = localStorage.getItem(storageKey)
 
-if (savedTransactions) {
+if (savedTransactions ) {
     try {
         const parsed = JSON.parse(savedTransactions)
         transactions = Array.isArray(parsed) ? parsed : [parsed]
@@ -60,16 +62,18 @@ submit.addEventListener('click', (e) => {
         date: date.value,
         category: category.value
     }
-    transactions.push(newTransaction)
+     if(type.value ==="Income" ){transactions.push(newTransaction)
     localStorage.setItem(storageKey, JSON.stringify(transactions))
-
+// localStorage.clear()
+     }
+    
     form.style.display = 'none'
     // after form submission
     addBalance()
     displayb()
 })
  let displayb = ()=>{
-     balh1.textContent = totalBalance
+     balh1.textContent ="$"+ Math.floor(totalBalance).toFixed(2)
  }
 
  // Initialize balance display
