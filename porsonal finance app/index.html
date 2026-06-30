@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Document</title>
+</head>
+<body class="">
+    <main class="flex ">
+        <section  class="relative w-[18%] flex flex-col justify-between items-center gap-6 border border-black h-screen">
+            <div id="t1" class="flex flex-col justify-center items-center gap-4 w-full ">
+               <div class="flex justify-center items-center gap-4 w-full">
+                <img class="w-[20%]" src="image.png" alt="">
+                <div>
+                    <h1 class="text-2xl ">FinTrack Pro </h1>
+                    <span> Enterprise Finance</span>
+                </div>
+             </div>  
+
+                <div id="t2" class="w-[75%] flex flex-col  justify-center items-center r ounded-2xl ">
+                    <div class="w-[99%] gap-4 p-3  flex items-center justify-center">
+                        <img class="w-[10%]" src="image copy 2.png" alt="">
+                        <h1>Dashboard</h1>
+                    </div>
+                    <div class="w-[99%] gap-4 p-3  flex items-center justify-center">
+                        <img class="w-[18%]" src="image copy 3.png" alt="">
+                        <h1>Dashboard</h1>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <button id="fbtn" class="flex text-white bg-black gap-4 justify-center items-center border-[1px] border-black rounded-2xl p-2 cursor-pointer w-[85%] my-3 active:scale-95">
+                <h1 class="text-3xl">+</h1>
+               <h1>
+                   Add Transactions 
+            </h1>
+            </button>
+        </section>
+        <section id="ff" class="flex flex-col justify-center items-center w-full h-full bg-[#18191a7c] absolute">
+            <form class="bg-white p-5 rounded-xl flex flex-col justify-between  w-[30%] h-[60%]" action="">
+              <h1 class="text-2xl">Add Transaction</h1> 
+              <div id="q1" class="lable flex flex-col">
+                <label for="type">Type</label>
+                <select id="type" name="type" class="border-[1px] border-gray-300 h-8 rounded-[10px]" required>
+                  <option value="">Select an option</option>
+                  <option value="Expense">Expense</option>
+                  <option value="Income">Income</option>
+                </select>
+              </div>
+              <div class="lable flex flex-col">
+                <label for="description">Description</label>
+                <input id="description" name="description" class="border-[1px] p-1 border-gray-300 h-8 rounded-[10px]" type="text" required>
+              </div>
+             
+              <div class="flex w-full justify-evenly items-center">
+                <div class="flex flex-col">
+                    <label for="amount">Amount</label>
+                    <input id="amount" name="amount" class="border-[1px] border-gray-300 h-8 rounded-[10px]" type="number" required>
+                </div>
+                <div class="flex flex-col">
+                    <label for="date">Date</label>
+                    <input id="date" name="date" class="border-[1px] border-gray-300 h-8 rounded-[10px]" type="date" required>
+                </div>
+              </div>
+
+              <div class="flex flex-col">
+                <label for="category">Category</label>
+                <input id="category" name="category" class="border-[1px] border-gray-300 h-8 rounded-[10px]" type="text" required>
+              </div>
+              <input id="sb" class="bg-black text-xl text-white p-2 rounded-2xl" type="submit">
+
+            </form>
+        </section>
+        <section class="w-[81.9%]">
+            <div id="top" class="w-full h-[10%] border border-black">
+            </div>
+            <div id="hero" class="h-fit w-[99.9%] p-10 bg-[#eef2f7]">
+                <div id="text">
+                    <h1 class="text-2xl">Financial Overview</h1>
+                    <span>Real-time tracking application</span>
+                </div>
+                <div id ="card" class="flex justify-evenly gap-4 my-5  items-center">
+                    <div class="cardcompo p-5 rounded-2xl bg-white w-[25%] border border-gray-300 flex flex-col justify-between">
+                        <img class="w-[18%]" src="image copy 4.png" alt="">
+                        <h1 class="">Current Balance</h1>
+                        <h1 id="bal" class="text-3xl">€0.00</h1>
+                    </div>
+
+                     <div class="cardcompo p-5 rounded-2xl bg-white w-[25%] border border-gray-300 flex flex-col justify-between">
+                        <img class="w-[20%] rounded-2xl" src="image copy 5.png" alt="">
+                        <h1 class="">Total Income </h1>
+                        <h1 class="text-3xl">€0.00</h1>
+                    </div>
+
+                     <div class="cardcompo p-5 rounded-2xl bg-white w-[25%] border border-gray-300 flex flex-col justify-between">
+                        <img class="w-[18%]" src="image copy 4.png" alt="">
+                        <h1 class="">Current Balance</h1>
+                        <h1 class="text-3xl">$15</h1>
+                    
+                     </div> 
+
+                    <div class="cardcompo p-5 rounded-2xl bg-white w-[25%] border border-gray-300 flex flex-col justify-between">
+                        <img class="w-[18%]" src="image copy 4.png" alt="">
+                        <h1 class="">Current Balance</h1>
+                        <h1 class="text-3xl">$15</h1>
+                    </div>
+                 </div >
+                 <div id="graph-midsection"  class="w-[99.9%] flex ">
+                    <div id="graph " class="bg-white p-6 flex flex-col justify-evenly w-[60%] rounded-2xl">
+                        <h1 class="text-2xl pb-3">Cash Flow Analysis</h1>
+                        <div id="maingraph" class="bg-[#eef2f7] h-65 flex p-3 rounded-2xl">
+                            <div class="bg-green-600 w-[50%] h-full rounded-l-2xl"></div>
+                            <div class="bg-red-700 w-[50%] h-full rounded-r-2xl"  ></div>
+                        </div>
+                    </div>
+                    <div class="Alltrans bg-white rounded-xl m-3  p-5 w-[40%]">
+                        <h1 class="text-2xl">All Transactions</h1>
+                        <div>
+                            <div>
+
+                                <img src="" alt="">
+                                <input type="text">
+                            </div>
+
+                        </div>
+                        <div class=" flex justify-evenly text-gray-400">
+                            <h1>Discription</h1>
+                            <h1>Amount</h1>
+                            <h1>Reoson</h1>
+                        </div>
+                    </div>
+                 </div>
+
+        </section>
+    </main>
+</body>
+<script src="script.js"></script>
+</html>
