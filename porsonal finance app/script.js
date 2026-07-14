@@ -62,7 +62,8 @@ submit.addEventListener('click', (e) => {
         date: date.value,
         category: category.value
     }
-     if(type.value ==="Income" ){transactions.push(newTransaction)
+     if(type.value ==="Income" ){
+    transactions.push(newTransaction)
     localStorage.setItem(storageKey, JSON.stringify(transactions))
 // localStorage.clear()
      }
