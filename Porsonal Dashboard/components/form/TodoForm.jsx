@@ -1,22 +1,25 @@
-const TodoForm = ({setTodos , todos}) => {
+import React from "react";
+import { useForm } from "react-hook-form"
+const TodoForm = ({ handleSubmit, inputValue, setInputValue,inpref }) => {
 
-  console.log("rendering");
-  
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        
-    }
+
   return (
     <>
-    <form className="w-full" action="" onSubmit={handleSubmit}>
-        <input onChange={(e)=>{
-          // setTodos({...todos, text : e.target.value});
+      <form className="w-full" onSubmit={handleSubmit}>
+        <input
+          ref={inpref}
+          // value={inputValue}
 
-        }} className="w-full" type="text" placeholder="Add a new task" />
-        <button className="w-full" type="submit" onClick={handleSubmit}>Add</button>
-    </form>
+          // onChange={(e) => setInputValue(e.target.value)}
+          className="w-full h-7 border border-gray-500 p-4 rounded-xl"
+          type="text"
+          placeholder="Add a new task"
+        />
+        <button onClick={() => setInputValue(inpref.current.value)} className="w-full" type="submit">Add</button>
+        {/* <button onClick={() => localStorage.setItem("todo",JSON.stringify(inpref.current.value))} className="w-full" type="submit">Add</button> */}
+      </form>
     </>
-  )
+  );
 }
 
 export default TodoForm

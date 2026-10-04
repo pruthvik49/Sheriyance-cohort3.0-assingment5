@@ -1,28 +1,29 @@
-import React, { useState } from 'react'
+import { useContext, useRef, useState } from 'react'
 import WidgetCard from '../ui/WidgetCard'
 import TodoForm from '../form/TodoForm'
-
-const TodoItem = ({ text, done }) => (
-  <li className="flex items-center gap-3 py-1 ">
-    <span
-      className={`w-4 h-4 rounded border flex items-center justify-center ${
-        done ? 'border-emerald-400 bg-emerald-400/20' : 'border-white/20'
-    }`}
-    >
-      {done && <span className="w-1.5 h-1.5 rounded-sm bg-emerald-400"></span>}
-    </span>
-    <span className={done ? 'line-through text-white/40' : 'text-white/85'}>{text}</span>
-  </li>
-)
+import { UserContext } from '../../context/TodoformC'
+import TodoItem from './TodoItem'
 
 const TodoWidget = () => {
-  const [showForm, setShowForm] = useState(false)
-  const [todos, setTodos] = useState([
-    { id: "", text: "" , done: true},
-   
-  ])
+  const { showForm, setShowForm, todos, setTodos } = useContext(UserContext)
+  const [inputValue, setInputValue] = useState('')
+  const inpref = useRef()
 
-  // const completedCount = todos.filter((t) => t.done).lengtht
+  const handleSubmit = (e) => {
+    e.preventDefault()
+    const trimmedValue = inputValue.trim()
+
+    if (!trimmedValue) return
+
+    setTodos((currentTodos) => [
+      ...currentTodos,
+      { id: Date.now(), text: trimmedValue, done: false },
+    ])
+    
+    
+    inpref.current.value = " "
+  }
+ 
 
   return (
     <WidgetCard
@@ -40,14 +41,14 @@ const TodoWidget = () => {
         }}>Add Task</button>
       </div>
       <ul className="space-y-2 text-sm">
-        {todos.map((todo,id) => (
-          <TodoItem key={id} text={todo.text} done={todo.done} />
+        {todos.map((todo) => (
+          <TodoItem key={todo.id} id={todo.id} text={todo.text} done={todo.done} />
         ))}
         <div>
-        {showForm && <TodoForm setTodos={setTodos} todos={todos}/>}
+        {showForm && <TodoForm handleSubmit={handleSubmit} inputValue={inputValue} setInputValue={setInputValue} inpref={inpref}/>}
         </div>
       </ul>
-      
+
     </WidgetCard>
   )
 }
