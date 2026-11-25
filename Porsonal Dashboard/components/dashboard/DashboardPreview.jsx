@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import ClockWidget from './ClockWidget'
 import PomodoroWidget from './PomodoroWidget'
 import WeatherWidget from './WeatherWidget'
@@ -14,6 +14,7 @@ const DashboardPreview = ({ clock, date }) => {
             <ClockWidget clock={clock} date={date} />
             <PomodoroWidget />
             <WeatherWidget />
+
             <TodoWidget />
             <QuoteWidget />
           </div>

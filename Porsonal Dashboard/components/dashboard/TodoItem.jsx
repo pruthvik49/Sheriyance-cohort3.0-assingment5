@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import { UserContext } from '../../context/TodoformC';
 import yoo from '../../src/assets/close-circle-fill.png'
+// import expandimg from '../../src/assets/expand.svg'
 
 const TodoItem = ({ id, text, done }) => {
   const [checktoggle, setChecktoggle] = useState(false)
@@ -25,6 +26,7 @@ const TodoItem = ({ id, text, done }) => {
           {text}
         </span>
         <div className="shrink-0 overflow-hidden">
+          
           <span>
             {checktoggle && (
               <img
